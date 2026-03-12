@@ -6,11 +6,13 @@ import path from 'node:path'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
 
-  base: './',
+  base: '/',
 
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
+  build: {
+    modulePreload: false,
+    assetsInlineLimit: 0,
+    minify: 'terser',
+    cssMinify: true
+  }
+
 })
